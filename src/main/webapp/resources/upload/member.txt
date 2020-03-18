@@ -1,0 +1,16 @@
+CREATE TABLE member (
+	`id` VARCHAR(20) NOT NULL,
+	`pwd` VARCHAR(15) NOT NULL,
+	`pwd_ch` VARCHAR(15) NOT NULL,
+	`birth` VARCHAR(20) NOT NULL,
+	`name` VARCHAR(15) NOT NULL,
+	`phone` VARCHAR(20)NOT NULL,
+	`address` VARCHAR(50) NOT NULL,
+	`photo` LONGBLOB NOT NULL,
+	 `gender` INT(5) NOT NULL DEFAULT '0',
+	`isAdmin` INT(5) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`)
+) charset=utf8;
+
+관리자 
+insert into member values('hjteam','123','123','19950805','최팀장','010-5553-5535','서울시 강남구 역삼동','form.png',1,1);

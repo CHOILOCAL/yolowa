@@ -1,0 +1,53 @@
+﻿자바시험 
+1.cmd에서 자바 버전 확인 명령어
+-java-version
+-path<현재 환경변수의 경로확인>
+2.ip 알고싶을때 명령어
+ipconfig
+3.경로 알고 싶을때 명령어
+path
+4.자바의 특징
+-객체지향적언어,os와동일하게 실행 인식성이 높은언어,동적로딩지원,멀티스레드구현이 용이하다,자동으로 메모리정리
+5.환경 변수 설정
+-내컴퓨터- 속성 -고급시스템설정-환경변수 JAVA_HOME -jdk파일 경로 path는 bin파일경로
+6.클래스의 이름 하고 맴버필드 를 주고 겟터셋터 만들기
+
+7.패키지 쓰는 이유
+-클래스파일에 정리와 충돌을 방지하기위해
+8.코드 채우기
+
+9.키보드로 값받을때 쓰는 명령어
+Scanner
+-import java.util.Scanner;
+public class car{
+public static void main(String[] args){
+ String a;
+Scanner sc =new Scanner(System.in);
+a=sc.next();
+} }
+10.통신할떄 필요한 클래스
+-Socket(지정포트번호)
+-Sever socket
+11.UDP/TCP 특징
+-TCP-연결형 프로토콜,연결후 통신,1:1통신,데이터 경계구분안함,데이터전송순서보장,수신여부 확인,UDP보다 느림
+-UDP-비연결형,연결없이통신,(1,N):(1,N),데이터 경계구분함,신뢰성 없는데이터전송,전송순서 바뀔수있음,수신여부 확인안함
+12.프로토콜 종류
+오라클1521 마리아3306
+13.자바를 기계어로 바꾸는 명령어 
+-Javac 클래스명.java
+14.오버로딩 오버라이딩
+-오버로딩 
+15.드라이버로딩 클래스들의 용도
+import java.sql.DriverManager
+Class.forName("org.mariadb.jdbc.
+-connection,preparestament,
+16.메소드 선언시 반환형 매게변수들
+-
+17.자바의 형변환
+-(String),(int),(double)변수
+18.클래스 만들기
+19.인터페이스 클래스 상속 받을때 쓰는 명령어
+-implements
+20.상속의 특징
+
+21.인서트문을 쓸때 ?? (sql 문제)

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+         <value>classpath:pack/resource/db.properties</value>
+      </property>
+   </bean>
+   
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+      <property name="driverClass" value="${driver}" />
+      <property name="url" value="${url}" />
+      <property name="username" value="${username}" />
+      <property name="password" value="${password}" />
+   </bean>
+   
+   <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+   </bean>
+   
+   <bean id="member" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   		<property name="mapperInterface" value="pack.model.login.MemberAnnoInter" />
+   		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>
+   
+   <bean id="login" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   	<property name="mapperInterface" value="pack.model.login.LoginAnnoInter" />
+   	<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>	
+   
+   <bean id="find" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   	<property name="mapperInterface" value="pack.model.login.FindAnnoInter" />
+   	<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>	
+   
+   <bean class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   	<property name="mapperInterface" value="pack.model.planning.AreasAnnoInter" />
+   	<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>	
+   
+   <bean class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   	<property name="mapperInterface" value="pack.model.planning.CalAnnoInter" />
+   	<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>	
+   
+   <bean class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+   	<property name="mapperInterface" value="pack.model.planning.RouteAnnoInter" />
+   	<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></property> 
+   </bean>	
+   
+   
+   
+   
+   <!-- 현지꺼 -->
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean" >
+		<property name="mapperInterface" value="pack.model.choi.cityAnno" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean"></property>
+		</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="pack.model.choi.prtAnno" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+	</bean>
+	
+	<!-- 태환, 인영꺼 -->
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean" >
+		<property name="mapperInterface" value="pack.model.review.DetailAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean"></property>
+		</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="pack.model.review.ReplyAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="pack.model.review.ReviewAnnoInter" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
+	</bean>
+   
+</beans>
